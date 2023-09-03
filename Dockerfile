@@ -31,16 +31,18 @@ RUN apk add --no-cache --upgrade --virtual=build-dependencies \
     sshpass
 
 # Define the volume
-VOLUME /config 
+VOLUME /config
+RUN cd /config && mkdir scripts && cd scripts && mkdir pullio
 
 # Change working directory
 WORKDIR /config/scripts/pullio
 
 # Clone ARR-UPDATE repository
-RUN curl -fsSL "https://raw.githubusercontent.com/hotio/pullio/master/pullio.sh" -o /config/scripts/pullio
+#RUN curl -fsSL "https://raw.githubusercontent.com/hotio/pullio/master/pullio.sh" -o /config/scripts/pullio
+RUN git clone https://github.com/hotio/pullio.git
 
 # Set executable permissions for scripts
-RUN chmod +x /usr/local/bin/pullio
+RUN chmod +x /config/scripts/pullio
 
 # Copy crontab file
 COPY crontab /etc/crontabs/root
