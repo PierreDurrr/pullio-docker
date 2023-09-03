@@ -1,1 +1,50 @@
-
+@reboot echo "───────────────────────────────────────" > /proc/1/fd/1
+@reboot date | echo "Starting, let's go !" > /proc/1/fd/1
+@reboot echo "───────────────────────────────────────" > /proc/1/fd/1
+* * * * * date > /proc/1/fd/1
+* * * * * date | echo "Crontab is working - watchdog 1 - Waiting for next run to start..." > /proc/1/fd/1 
+#
+##########################################
+# PLEX WATCHDOG                        ###
+##########################################
+#
+# Check if plex server is healthy, and restart service if needed
+# At every 1 minutes
+#* * * * * /bin/bash /config/scripts/plex_watchdog_service.sh && date | echo "Plex server should be okay now..." > /proc/1/fd/1
+#
+##########################################
+# PLEX RANDOM MOVIES OF THE DAY        ###
+##########################################
+#
+# 3 random movies (with trailers !) for the day.
+# Every day at 7:00
+0 7 * * * python3 /config/scripts/plex_random_movies.py > /proc/1/fd/1
+#
+##########################################
+# SONARR-RADARR-OVERSEERR SYNC/SEARCH  ###
+##########################################
+#
+# Sonarr ALL Force Sync List
+# At every 5 minutes
+*/5 * * * * /bin/bash /config/scripts/sonarr_force_sync_list.sh > /proc/1/fd/1
+#
+# Radarr ALL Force Sync List
+# At every 6 minutes
+*/6 * * * * /bin/bash /config/scripts/radarr_force_sync_list.sh > /proc/1/fd/1
+#
+# Overseerr refresh Sonarr/Radarr
+# At Every 30 minutes
+30 * * * * /bin/bash /config/scripts/overseerr_force_scan_arr.sh > /proc/1/fd/1
+#
+# Sonarr ALL Force Search Script
+# At every 40nd minute
+*/40 * * * * /bin/bash /config/scripts/sonarr_force_search.sh > /proc/1/fd/1
+#
+# Radarr ALL Force Search Script
+# At every 6 hours and 26 minutes
+26 */6 * * * /bin/bash /config/scripts/radarr_force_search.sh > /proc/1/fd/1
+#
+# Radarr ALL Force Remove Deleted Movies
+# Every day at 01:00
+0 1 * * * /bin/bash /config/scripts/radarr_remove_unmonitored_deleted_movies.sh > /proc/1/fd/1
+#
