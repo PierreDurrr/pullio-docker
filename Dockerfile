@@ -30,6 +30,9 @@ RUN apk add --no-cache --upgrade --virtual=build-dependencies \
     curl \
     sshpass
 
+# Define the volume
+VOLUME /config 
+
 # Change working directory
 WORKDIR /config/scripts/pullio
 
@@ -44,6 +47,3 @@ COPY crontab /etc/crontabs/root
 
 # Start cron daemon
 CMD ["crond", "-f", "-l", "2"]
-
-# Define the volume
-VOLUME /config
