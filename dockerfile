@@ -18,32 +18,26 @@ RUN apk add --no-cache --upgrade --virtual=build-dependencies \
     libxml2-dev \
     musl-dev \
     openssl-dev \
-    postgresql-dev \
     python3-dev \
     zlib-dev && \
   apk add --no-cache --upgrade \
     tiff \
-    postgresql-client \
     py3-setuptools \
     python3 \
     uwsgi \
     uwsgi-python \
     nano \
+    curl \
     sshpass
 
-# Clone ARR-UPDATE repository
-RUN git clone https://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@github.com/PierreDurrr/arr-update /config
-
-# Install pip packages
-RUN python3 -m ensurepip && \
-    rm -rf /usr/lib/python*/ensurepip && \
-    pip3 install --no-cache-dir -U pip wheel tqdm
-
 # Change working directory
-#WORKDIR /config/000-arr-scripts
+WORKDIR /config/scripts/pullio
+
+# Clone ARR-UPDATE repository
+RUN curl -fsSL "https://raw.githubusercontent.com/hotio/pullio/master/pullio.sh" -o /config/scripts/pullio
 
 # Set executable permissions for scripts
-#RUN chmod +x *.sh
+RUN chmod +x /usr/local/bin/pullio
 
 # Copy crontab file
 COPY crontab /etc/crontabs/root
