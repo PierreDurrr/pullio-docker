@@ -9,7 +9,8 @@
 ##########################################
 #
 # pull.io script from hotio for updating containers
-# Every day at 5:00
-0 5 * * * /bin/bash /config/scripts/pullio/pullio.sh> /proc/1/fd/1
+# At reboot/startup and Every day at 5:00
+@reboot /bin/bash /config/scripts/pullio/pullio/pullio.sh> /proc/1/fd/1
+0 5 * * * /bin/bash /config/scripts/pullio/pullio/pullio.sh> /proc/1/fd/1
 #
 ##########################################
