@@ -1,5 +1,7 @@
 # pullio-docker
 
+(https://hotio.dev/img/pullio-sunglasses.svg)
+
 # Pullio - hotio.dev
 [GitHub](https://github.com/hotio/pullio)
 
