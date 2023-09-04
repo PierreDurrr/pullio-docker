@@ -70,8 +70,8 @@ It can be frustrating to test the script if no docker image updates are availabl
 ## Notification preview
 
 <div class="pullio-preview">
-<img src="/img/pullio-update-1.png" alt="preview"/>
-<img src="/img/pullio-update-2.png" alt="preview"/>
+<img src="[/img/pullio-update-1.png](https://hotio.dev/img/pullio-update-1.png)" alt="preview"/>
+<img src="[/img/pullio-update-2.png](https://hotio.dev/img/pullio-update-2.png)" alt="preview"/>
 <img src="/img/pullio-update-3.png" alt="preview"/>
 <img src="/img/pullio-update-4.png" alt="preview"/>
 <img src="/img/pullio-update-5.png" alt="preview"/>
