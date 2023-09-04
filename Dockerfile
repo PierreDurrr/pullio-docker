@@ -6,6 +6,8 @@ ARG VERSION
 ARG ARR_UPDATE_RELEASE
 LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="PierreDurrr"
+LABEL "org.hotio.pullio.update=true"
+LABEL "org.hotio.pullio.notify=true"
 
 # Install build and runtime dependencies
 #RUN apk add --no-cache --upgrade --virtual=build-dependencies \
