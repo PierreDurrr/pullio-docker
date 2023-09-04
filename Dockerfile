@@ -32,10 +32,10 @@ RUN apk add --no-cache --upgrade --virtual=build-dependencies \
 
 # Define the volume
 VOLUME /config
-RUN cd /config && mkdir scripts && cd scripts && mkdir pullio
+RUN cd /config && mkdir scripts && cd scripts
 
 # Change working directory
-WORKDIR /config/scripts/pullio
+WORKDIR /config/scripts
 
 # Clone ARR-UPDATE repository
 #RUN curl -fsSL "https://raw.githubusercontent.com/hotio/pullio/master/pullio.sh" -o /config/scripts/pullio
