@@ -9,26 +9,26 @@ LABEL maintainer="PierreDurrr"
 
 # Install build and runtime dependencies
 RUN apk add --no-cache --upgrade --virtual=build-dependencies \
-    cargo \
-    gcc \
+#    cargo \
+#    gcc \
     git \
-    jpeg-dev \
-    libffi-dev \
-    libxslt-dev \
-    libxml2-dev \
-    musl-dev \
-    openssl-dev \
-    python3-dev \
-    zlib-dev && \
+#    jpeg-dev \
+#    libffi-dev \
+#    libxslt-dev \
+#    libxml2-dev \
+#    musl-dev \
+#    openssl-dev \
+#    python3-dev \
+#    zlib-dev && \
   apk add --no-cache --upgrade \
-    tiff \
-    py3-setuptools \
-    python3 \
-    uwsgi \
-    uwsgi-python \
+#    tiff \
+#    py3-setuptools \
+#    python3 \
+#    uwsgi \
+#    uwsgi-python \
     nano \
-    curl \
-    sshpass
+    curl
+#    sshpass
 
 # Define the volume
 VOLUME /config
