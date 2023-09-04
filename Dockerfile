@@ -8,10 +8,10 @@ LABEL build_version="version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 LABEL maintainer="PierreDurrr"
 
 # Install build and runtime dependencies
-RUN apk add --no-cache --upgrade --virtual=build-dependencies \
+#RUN apk add --no-cache --upgrade --virtual=build-dependencies \
 #    cargo \
 #    gcc \
-    git
+#    git
 #    jpeg-dev \
 #    libffi-dev \
 #    libxslt-dev \
@@ -20,13 +20,14 @@ RUN apk add --no-cache --upgrade --virtual=build-dependencies \
 #    openssl-dev \
 #    python3-dev \
 #    zlib-dev && \
-  apk add --no-cache --upgrade \
+RUN apk add --no-cache --upgrade \
 #    tiff \
 #    py3-setuptools \
 #    python3 \
 #    uwsgi \
 #    uwsgi-python \
     nano \
+    git \
     curl
 #    sshpass
 
