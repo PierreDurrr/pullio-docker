@@ -9,39 +9,20 @@ LABEL maintainer="PierreDurrr"
 LABEL org.hotio.pullio.update="true"
 LABEL org.hotio.pullio.notify="true"
 
-# Install build and runtime dependencies
-#RUN apk add --no-cache --upgrade --virtual=build-dependencies \
-#    cargo \
-#    gcc \
-#    git
-#    jpeg-dev \
-#    libffi-dev \
-#    libxslt-dev \
-#    libxml2-dev \
-#    musl-dev \
-#    openssl-dev \
-#    python3-dev \
-#    zlib-dev && \
+# Install additional packages
 RUN apk add --no-cache --upgrade \
-#    tiff \
-#    py3-setuptools \
-#    python3 \
-#    uwsgi \
-#    uwsgi-python \
     nano \
     git \
     curl
-#    sshpass
 
-# Define the volume
+# Define the volume and create dir
 VOLUME /config
 RUN cd /config && mkdir scripts && cd scripts
 
 # Change working directory
 WORKDIR /config/scripts
 
-# Clone ARR-UPDATE repository
-#RUN curl -fsSL "https://raw.githubusercontent.com/hotio/pullio/master/pullio.sh" -o /config/scripts/pullio
+# Clone hotio/pullio repository
 RUN git clone https://github.com/hotio/pullio.git
 
 # Set executable permissions for scripts
