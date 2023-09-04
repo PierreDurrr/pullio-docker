@@ -11,7 +11,7 @@ LABEL maintainer="PierreDurrr"
 RUN apk add --no-cache --upgrade --virtual=build-dependencies \
 #    cargo \
 #    gcc \
-    git \
+    git
 #    jpeg-dev \
 #    libffi-dev \
 #    libxslt-dev \
